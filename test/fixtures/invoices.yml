@@ -6,6 +6,8 @@ one:
   due_date: 2023-04-30 12:41:12
   status: 1
   scan: 
+  borrower_id: 1
+  fee_id: 1
 
 two:
   invoice_number: Invoice2
@@ -13,3 +15,5 @@ two:
   due_date: 2023-04-30 12:41:12
   status: 1
   scan: 
+  borrower_id: 1
+  fee_id: 1
