@@ -1,7 +1,8 @@
 class BorrowersController < ApplicationController
+    before_action :set_post, only: [:show]
 
     def show
-        @borrower = Borrower.find(params[:id])
+        render json: @borrower
     end
 
     def create
@@ -17,6 +18,10 @@ class BorrowersController < ApplicationController
     private
         def fee_params
             params.require(:borrower).permit(:name)
+        end
+
+        def set_post
+            @borrower = Borrower.find(params[:id])
         end
 
 end
