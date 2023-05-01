@@ -1,6 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  id: 1
   invoice_number: Invoice1
   amount: 9.99
   due_date: 2023-04-30 12:41:12
@@ -10,6 +11,7 @@ one:
   fee_id: 1
 
 two:
+  id: 2
   invoice_number: Invoice2
   amount: 9.99
   due_date: 2023-04-30 12:41:12
