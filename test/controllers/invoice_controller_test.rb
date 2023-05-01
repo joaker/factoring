@@ -49,4 +49,29 @@ class InvoicesControllerTest < ActionDispatch::IntegrationTest
   end
 
 
+  test "should accrue fees when closed" do
+    @invoice = invoices(:one)
+    
+    # set the due date to 4 days ago
+    @invoice.due_date = DateTime.now - 4.days;
+    assert @invoice.save
+    @invoice.reload
+
+    put "/invoices/#{@invoice.id}", params: { id: @invoice.id, status: "approved" }
+    assert_response :success
+    @invoice.reload
+    assert_equal "approved", @invoice.status
+
+    put "/invoices/#{@invoice.id}", params: { id: @invoice.id, status: "purchased" }
+    assert_response :success
+    @invoice.reload
+    assert_equal "purchased", @invoice.status
+
+    put "/invoices/#{@invoice.id}", params: { id: @invoice.id, status: "closed" }
+    assert_response :success
+    @invoice.reload
+    assert_equal "closed", @invoice.status
+    @invoice.total_accrued == 4;
+  end
+
 end

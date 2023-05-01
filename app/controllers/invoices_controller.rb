@@ -20,6 +20,17 @@ class InvoicesController < ApplicationController
   end
   
   def update
+
+    if params[:status] == 'closed'
+      percentage = @invoice.fee.percentage
+      daily_accrued = @invoice.amount * percentage;
+
+      two_days_after_due_date = @invoice.due_date + 2.days;
+      days_accrued = (two_days_after_due_date - DateTime.now).to_i
+
+      @invoice.total_accrued = daily_accrued * days_accrued      
+    end
+
     if @invoice.update(status: params[:status])
       render json: @invoice
     else

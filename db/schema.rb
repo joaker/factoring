@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_30_223422) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_01_162210) do
   create_table "borrowers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -33,6 +33,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_30_223422) do
     t.datetime "updated_at", null: false
     t.integer "borrower_id"
     t.integer "fee_id"
+    t.decimal "total_accrued"
     t.index ["borrower_id"], name: "index_invoices_on_borrower_id"
     t.index ["fee_id"], name: "index_invoices_on_fee_id"
     t.index ["invoice_number"], name: "index_invoices_on_invoice_number", unique: true
