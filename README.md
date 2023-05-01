@@ -74,3 +74,8 @@ curl --request PUT \
   --url http://localhost:3000/invoices/1 \
   --header 'Content-Type: application/json' \
   --data '{ "id": 1, "status": "closed" }'
+
+### GET current invoices again, and notice that total_accrued is now set
+curl --request GET \
+  --url http://localhost:3000/invoices \
+  --header 'Content-Type: application/json'
