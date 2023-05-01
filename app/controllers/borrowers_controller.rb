@@ -6,7 +6,7 @@ class BorrowersController < ApplicationController
     end
 
     def create
-        @fee = Borrower.new(fee_params)
+        @fee = Borrower.new(borrower_params)
     
         if @fee.save
           render json: @fee, status: :created
@@ -16,7 +16,7 @@ class BorrowersController < ApplicationController
     end
 
     private
-        def fee_params
+        def borrower_params
             params.require(:borrower).permit(:name)
         end
 
