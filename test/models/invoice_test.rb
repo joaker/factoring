@@ -48,7 +48,7 @@ class InvoiceTest < ActiveSupport::TestCase
     assert_not_nil invoice.errors[:fee_id], 'no validation errors for fee id present'
   end
 
-  test "validate valid transitions" do
+  test "validate transitions" do
 
     # TODO: fix this test
 
@@ -66,8 +66,19 @@ class InvoiceTest < ActiveSupport::TestCase
     assert @invoice.save
     assert_equal @invoice.status, 'created'
 
+    @invoice.status = :purchased
+    assert_not @invoice.save, "Saved invalid transition from created to purchased"
+
+    @invoice.reload
+    @invoice.status = :closed
+    assert_not @invoice.save, "Saved invalid transition from created to closed"
+
     @invoice.status = :approved
     assert @invoice.save, "Failed to save valid status from created to approved"
+
+    @invoice.reload
+    @invoice.status = :closed
+    assert_not @invoice.save, "Saved invalid transition from approved to closed"
 
     @invoice.reload
     @invoice.status = :purchased
