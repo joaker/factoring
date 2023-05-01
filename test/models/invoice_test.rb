@@ -89,20 +89,4 @@ class InvoiceTest < ActiveSupport::TestCase
     assert @invoice.save, "Failed to save valid status transition from purchased to closed"
   end
 
-  test "validate invalid transitions" do
-
-    # TODO: fix this test
-
-    # @invoice = invoices(:two)
-
-    # # Only approved invoices can be purchased
-    # @invoice.status = :purchased
-    # assert_not @invoice.save, "Saved invalid status transition from created to closed"
-    
-    # # Only purchased invoices can be closed
-    # @invoice.status = :closed
-    # assert_not @invoice.save, "Saved invalid status transition from approved to closed"
-
-  end
-
 end
