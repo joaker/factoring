@@ -50,7 +50,7 @@ curl --request POST \
 	"fee_id": 1, 
 	"invoice_number": "ABC123", 
 	"amount": 200.0,
-	"due_date": "2023-04-30 12:41:12",
+	"due_date": "2023-04-28 12:41:12",
 	"status": "created", 
 	"scan": "iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=="
 }'
