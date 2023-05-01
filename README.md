@@ -1,10 +1,5 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
+# Introduction
+This is a sample API a bank might use for tracking that status of invoices used for factoring
 
 ## System dependencies
 
