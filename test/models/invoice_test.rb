@@ -52,25 +52,30 @@ class InvoiceTest < ActiveSupport::TestCase
 
     # TODO: fix this test
 
-    # @invoice = invoices(:one)
-    # assert @invoice.valid?
-    # assert @invoice.save
-    # assert_equal @invoice.status, 'created'
+    @invoice = invoices(:one)
+    assert @invoice.valid?
+    assert @invoice.save
+    assert_equal @invoice.status, 'created'
 
-    # @invoice = invoices(:one)
-    # @invoice.status = 'rejected'
-    # assert @invoice.save, "Failed to save valid status transition from created to rejected"
+    @invoice.status = 'rejected'
+    assert @invoice.save, "Failed to save valid status transition from created to rejected"
 
-    # @invoice = invoices(:two)
+    @invoice = invoices(:two)
 
-    # @invoice.status = :approved
-    # assert @invoice.save, "Failed to save valid status from created to approved"
+    assert @invoice.valid?
+    assert @invoice.save
+    assert_equal @invoice.status, 'created'
 
-    # @invoice.status = :purchased
-    # assert @invoice.save, "Failed to save valid status from created to purchased"
+    @invoice.status = :approved
+    assert @invoice.save, "Failed to save valid status from created to approved"
 
-    # @invoice.status = :closed
-    # assert_not @invoice.save, "Failed to save valid status transition from purchased to closed"
+    @invoice.reload
+    @invoice.status = :purchased
+    assert @invoice.save, "Failed to save valid status from created to purchased"
+
+    @invoice.reload
+    @invoice.status = :closed
+    assert @invoice.save, "Failed to save valid status transition from purchased to closed"
   end
 
   test "validate invalid transitions" do
