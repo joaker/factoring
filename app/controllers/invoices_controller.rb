@@ -25,8 +25,9 @@ class InvoicesController < ApplicationController
       percentage = @invoice.fee.percentage
       daily_accrued = @invoice.amount * percentage;
 
-      two_days_after_due_date = @invoice.due_date + 2.days;
-      days_accrued = (two_days_after_due_date - DateTime.now).to_i
+      two_days_after_due_date = (@invoice.due_date + 2.days).to_datetime
+      elapsed_datetime =  DateTime.now - two_days_after_due_date
+      days_accrued = elapsed_datetime.to_i
 
       @invoice.total_accrued = daily_accrued * days_accrued      
     end
