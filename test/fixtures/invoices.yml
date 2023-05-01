@@ -4,8 +4,8 @@ one:
   invoice_number: Invoice1
   amount: 9.99
   due_date: 2023-04-30 12:41:12
-  status: 1
-  scan: 
+  status: 0
+  scan: 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=='
   borrower_id: 1
   fee_id: 1
 
@@ -13,7 +13,7 @@ two:
   invoice_number: Invoice2
   amount: 9.99
   due_date: 2023-04-30 12:41:12
-  status: 1
-  scan: 
+  status: 0
+  scan: 'iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg=='
   borrower_id: 1
   fee_id: 1

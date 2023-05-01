@@ -48,4 +48,45 @@ class InvoiceTest < ActiveSupport::TestCase
     assert_not_nil invoice.errors[:fee_id], 'no validation errors for fee id present'
   end
 
+  test "validate valid transitions" do
+
+    # TODO: fix this test
+
+    # @invoice = invoices(:one)
+    # assert @invoice.valid?
+    # assert @invoice.save
+    # assert_equal @invoice.status, 'created'
+
+    # @invoice = invoices(:one)
+    # @invoice.status = 'rejected'
+    # assert @invoice.save, "Failed to save valid status transition from created to rejected"
+
+    # @invoice = invoices(:two)
+
+    # @invoice.status = :approved
+    # assert @invoice.save, "Failed to save valid status from created to approved"
+
+    # @invoice.status = :purchased
+    # assert @invoice.save, "Failed to save valid status from created to purchased"
+
+    # @invoice.status = :closed
+    # assert_not @invoice.save, "Failed to save valid status transition from purchased to closed"
+  end
+
+  test "validate invalid transitions" do
+
+    # TODO: fix this test
+
+    # @invoice = invoices(:two)
+
+    # # Only approved invoices can be purchased
+    # @invoice.status = :purchased
+    # assert_not @invoice.save, "Saved invalid status transition from created to closed"
+    
+    # # Only purchased invoices can be closed
+    # @invoice.status = :closed
+    # assert_not @invoice.save, "Saved invalid status transition from approved to closed"
+
+  end
+
 end
